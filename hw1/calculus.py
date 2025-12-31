@@ -1,25 +1,26 @@
-def df(f, x, h=0.00001):
-    return (f(x + h) - f(x - h)) / (2 * h)
+h = 0.00001
 
-def integral(f, a, b, n=1000):
-    h = (b - a) / n
-    area = (f(a) + f(b)) / 2.0
-    for i in range(1, n):
-        area += f(a + i * h)
-    return area * h
+def df(f, x):
+    return (f(x+h)-f(x))/h 
+
+def integral(f, a, b):
+    x = a
+    area = 0
+    while x<b:
+        area += f(x)*h
+        x+=h
+    return area
 
 def theorem1(f, x):
-    g = lambda x_val: integral(f, 0, x_val)
-    
-    derivative_of_integral = df(g, x)
-    
-    target_value = f(x)
-    
-    print(f"G'({x}) = {derivative_of_integral:.6f}")
-    print(f"f({x})  = {target_value:.6f}")
-    
-    assert abs(derivative_of_integral - target_value) < 0.001
-    print("驗證成功！")
+    r = df(lambda x:integral(f, 0, x), x)
+    print('r=', r, 'f(x)=', f(x))
+    print('abs(r-f(x))<0.01 = ', abs(r-f(x))<0.01)
+    assert abs(r-f(x))<0.01
 
-test_f = lambda x: x**2
-theorem1(test_f, 3)
+def f(x):
+    return x**3
+
+print('df(f, 2)=', df(f, 2))
+print('integral(f, 0, 2)=', integral(f, 0, 2))
+
+theorem1(f, 2)
