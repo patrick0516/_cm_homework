@@ -1,5 +1,5 @@
 # ODE Solver: 常係數齊次線性常微分方程求解器
-
+對話連結：https://gemini.google.com/share/a4a6b73f7925
 本工具提供一個通用函數 `solve_ode_general`，旨在自動化求解工程與數學中常見的 $n$ 階常係數齊次 ODE。
 
 ## 為什麼這樣設計？
