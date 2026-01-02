@@ -16,7 +16,7 @@
      - $D = 0$：一個交點（切線）  
      - $D < 0$：無交點  
 
-- 代數意義：判別式 $D$ 反映了直線與圓的相對位置，提供快速判斷交點數量的方法。
+- 代數意義：判別式 $D$ 反映直線與圓的相對位置，快速判斷交點數量。
 
 ---
 
@@ -77,35 +77,26 @@
 ### (3) 旋轉（Rotation）
 
 - 旋轉角度 $\theta$（逆時針，弧度制），相對中心點 $C(x_c, y_c)$：
-  1. 平移至原點：
-     $$
-     x_0 = x - x_c, \quad y_0 = y - y_c
-     $$
-  2. 旋轉矩陣：
-     $$
-     \begin{bmatrix}
-     x' \\
-     y'
-     \end{bmatrix}
-     =
-     \begin{bmatrix}
-     \cos\theta & -\sin\theta \\
-     \sin\theta & \cos\theta
-     \end{bmatrix}
-     \begin{bmatrix}
-     x_0 \\
-     y_0
-     \end{bmatrix}
-     =
-     \begin{bmatrix}
-     x_0 \cos\theta - y_0 \sin\theta \\
-     x_0 \sin\theta + y_0 \cos\theta
-     \end{bmatrix}
-     $$
-  3. 平移回中心：
-     $$
-     x' = x_{\text{rot}} + x_c, \quad y' = y_{\text{rot}} + y_c
-     $$
+
+1. 平移至原點：
+   $$
+   x_0 = x - x_c, \quad y_0 = y - y_c
+   $$
+
+2. 旋轉矩陣：
+   $$
+   \begin{bmatrix} x' \\ y' \end{bmatrix}
+   =
+   \begin{bmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{bmatrix}
+   \begin{bmatrix} x_0 \\ y_0 \end{bmatrix}
+   =
+   \begin{bmatrix} x_0 \cos\theta - y_0 \sin\theta \\ x_0 \sin\theta + y_0 \cos\theta \end{bmatrix}
+   $$
+
+3. 平移回中心：
+   $$
+   x' = x_{\text{rot}} + x_c, \quad y' = y_{\text{rot}} + y_c
+   $$
 
 - 代數公式可直接套用於點座標，進而應用於線、圓、三角形的幾何變換。
 
